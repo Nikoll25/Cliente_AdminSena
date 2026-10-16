@@ -16,7 +16,7 @@
 
                     <div class="card-body p-4">
 
-                        <form action="{{ route('teacher.update', $teacher) }}" method="POST">
+                        <form action="{{ route('teacher.update', $teacher['id']) }}" method="POST">
                             @csrf
                             @method('PUT')
 
@@ -27,7 +27,7 @@
                                 </label>
 
                                 <input type="text" id="name" name="name" class="form-control form-control-lg"
-                                    value="{{ old('name', $teacher->name) }}" placeholder="Ingrese el nombre del instructor"
+                                    value="{{ old('name', $teacher['name']) }}" placeholder="Ingrese el nombre del instructor"
                                     required>
                             </div>
 
@@ -38,7 +38,7 @@
                                 </label>
 
                                 <input type="email" id="email" name="email" class="form-control form-control-lg"
-                                    value="{{ old('email', $teacher->email) }}" placeholder="Ingrese el correo electrónico"
+                                    value="{{ old('email', $teacher['email']) }}" placeholder="Ingrese el correo electrónico"
                                     required>
                             </div>
 
@@ -48,11 +48,11 @@
                                     Área
                                 </label>
 
-                                <select name="area_id" class="form-select">
+                               <select name="area_id" class="form-select">
                                     @foreach ($areas as $area)
-                                        <option value="{{ $area->id }}"
-                                            {{ $teacher->area_id == $area->id ? 'selected' : '' }}>
-                                            {{ $area->id }} - {{ $area->name }}
+                                        <option value="{{ $area['id'] }}"
+                                            {{ $teacher['area_id'] == $area['id'] ? 'selected' : '' }}>
+                                            {{ $area['id'] }} - {{ $area['name'] }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -63,11 +63,11 @@
                                     <i class="bi bi-building text-success me-1"></i>
                                     Centro de Formación
                                 </label>
-                                <select name="trainingCenter_id" class="form-select">
+                                <select name="training_center_id" class="form-select">
                                     @foreach ($trainingcenters as $trainingcenter)
-                                        <option value="{{ $trainingcenter->id }}"
-                                            {{ $teacher->trainingCenter_id == $trainingcenter->id ? 'selected' : '' }}>
-                                            {{ $trainingcenter->id }} - {{ $trainingcenter->name }}
+                                        <option value="{{ $trainingcenter['id'] }}"
+                                            {{ $teacher['training_center_id'] == $trainingcenter['id'] ? 'selected' : '' }}>
+                                            {{ $trainingcenter['id'] }} - {{ $trainingcenter['name'] }}
                                         </option>
                                     @endforeach
                                 </select>

@@ -16,7 +16,7 @@
 
                     <div class="card-body p-4">
 
-                        <form action="{{ route('Teacher.store') }}" method="POST">
+                        <form action="{{ route('teacher.store') }}" method="POST">
                             @csrf
 
                             <div class="mb-4">
@@ -47,8 +47,8 @@
                                     </option>
 
                                     @foreach ($areas as $area)
-                                        <option value="{{ $area->id }}">
-                                            {{ $area->name }}
+                                        <option value="{{ $area['id'] }}">
+                                            {{ $area['name'] }}
                                         </option>
                                     @endforeach
 
@@ -67,9 +67,9 @@
                                         Seleccione un centro de formación
                                     </option>
 
-                                    @foreach ($trainingCenters as $trainingCenter)
-                                        <option value="{{ $trainingCenter->id }}">
-                                            {{ $trainingCenter->name }}
+                                    @foreach ($trainingcenters as $trainingcenter)
+                                        <option value="{{ $trainingcenter['id'] }}">
+                                            {{ $trainingcenter['name'] }}
                                         </option>
                                     @endforeach
 
